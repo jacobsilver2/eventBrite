@@ -18,8 +18,8 @@ ol, ul, li { padding: 0; margin: 0; }
   position: relative;
   width: 65%;
   margin: 0 auto;
-/*  top: 0; right: 0;
-  bottom: 0; left: 0;*/
+  /*top: 0; right: 0;*/
+  /*bottom: 0; left: 0;*/
   overflow: auto;
   /*border: 1px solid #ededed;*/
   -webkit-border-radius: 4px;
@@ -59,7 +59,6 @@ ol, ul, li { padding: 0; margin: 0; }
 
 /* Event Listing */
 .queue-events-wrapper .queue-events { margin: 0; padding: 0; }
-
 .queue-events .queue-event {
   position: relative;
   display: block;
@@ -70,6 +69,7 @@ ol, ul, li { padding: 0; margin: 0; }
 }
 .queue-events .queue-event:last-of-type { margin-bottom: 0; }
 
+/* Image */
 .queue-events .queue-event .figure {
   position: relative;
   float: left;
@@ -94,6 +94,7 @@ ol, ul, li { padding: 0; margin: 0; }
   width: 120px;
   height: 120px;
 }
+/* content */
 .queue-events .queue-event .content {
   padding: 0 160px 0 0;
   min-height: 100px;
@@ -148,7 +149,6 @@ ol, ul, li { padding: 0; margin: 0; }
 .queue-event .title  { color: white; text-decoration: none; }
 .queue-event .title a:hover { color: #B0291F; }
 
-
 /* Date */
 .queue-events .queue-event .newDateArea {
   color: white;
@@ -158,8 +158,6 @@ ol, ul, li { padding: 0; margin: 0; }
   /*padding-bottom: 5px;*/
   border-bottom: 1px solid white;
 }
-
-
 /*.queue-events .queue-event .date-area {
   position: absolute;
   top: 15px; right: 0;
@@ -215,9 +213,6 @@ text-decoration: none;
     font-size: 24px;
 }*/
 
-
-
-
 /* Artists */
 /*.queue-event .supporting {
   margin: 0 0 10px 0;
@@ -236,7 +231,6 @@ text-decoration: none;
   overflow: hidden;
 
 }
-/* Description Link */
 .queue-event .footer li a {
   color: white;
   text-decoration: none;
@@ -246,29 +240,25 @@ text-decoration: none;
   text-decoration: none;
 }
 
-
-
-.readMoreLink { 
-    display: inline; 
-    color : white; 
-    font-size : 1.2em; 
+/* read more/less */
+.readMoreLink {
+    display: inline;
+    color : white;
+    font-size : 1.2em;
     text-align: right
 }
-.readLessLink { 
-  color : white; 
-  font-size : 1.2em; 
+.readLessLink {
+  color : white;
+  font-size : 1.2em;
 }
 
 .queue-event .footer strong {
   font-weight: 500;
 }
-
-
-
 .queue-event .footer .venue:before,
 .queue-event .footer .date-area-micro { display: none; }
 
-
+/* various screen types */
 @media screen and (max-width: 600px) {
 
   /* Listing */
@@ -313,9 +303,6 @@ text-decoration: none;
   }
 
 }
-
-
-
 @media screen and (max-width: 400px) {
   .queue-events .queue-event .figure, .queue-events .queue-event .footer .restrictions { display: none; }
   .queue-events .queue-event .btn-details { width: auto;}
@@ -323,7 +310,6 @@ text-decoration: none;
   .queue-event .footer li + li:before { display: none !important; }
 
 }
-
 @media screen and (min-width: 640px) {
   .queue-event .footer li {
     max-height: 8em;
