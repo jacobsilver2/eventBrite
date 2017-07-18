@@ -6,19 +6,14 @@
 //sean says to remove this:
 // var dateArray = [];
 // //get all dates from JSON feed and throw em into an array
-// $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(data) {
-//     $.each(data, function(key, val) {
-//         dateArray.push(val.starts_at);
-//     });
-// });
 
 $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(data) {
-    //sean says to add this code:
+    //populate the dateArray with dates from the JSON feed
     var dateArray = [];
     $.each(data, function(key, val) {
     dateArray.push(val.starts_at);
       });
-      
+
     var dateArrayCounter = 0;
     var output = '<div class="queue-events-wrapper layout-standard"><ul id="queue-event-list" class="queue-events">';
     //loop through each item in json feed and create html
@@ -74,7 +69,7 @@ $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(
         moreLink: '<a href="#" class="readMoreLink">Read more </a>',
         lessLink: '<a href="#" class="readLessLink">Close</a>',
         embedCSS: false,
-        collapsedHeight: 25,
+        collapsedHeight: 30,
     });
     jQuery(function($) {
         // Grab whatever we need to paginate
