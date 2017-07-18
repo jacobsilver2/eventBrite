@@ -1,12 +1,7 @@
-//pineBoxTest.json
 // Pine Box: https://www.eventbrite.com/venue/api/feeds/venue/426.json
 // Pete's https://www.eventbrite.com/venue/api/feeds/venue/424.json
+
 //create a global array that stores every date
-
-//sean says to remove this:
-// var dateArray = [];
-// //get all dates from JSON feed and throw em into an array
-
 $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(data) {
     //populate the dateArray with dates from the JSON feed
     var dateArray = [];
@@ -16,9 +11,10 @@ $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(
 
     var dateArrayCounter = 0;
     var output = '<div class="queue-events-wrapper layout-standard"><ul id="queue-event-list" class="queue-events">';
+
     //loop through each item in json feed and create html
     $.each(data, function(key, val) {
-        //format the starts_at variable to display a better output
+        //format the starts_at value to display a better output using moment.js
         var myDate = moment.utc(val.starts_at).format("MMMM Do (dddd)");
         output += '<li class="queue-event">';
         //date overlay
@@ -38,7 +34,8 @@ $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(
             output += '" /></a>';
             output += '</div>';
         } else {
-            output += '<a data-fancybox href="petes.jpg"><img src="petes.jpg" /></a></div>';
+            //using the image address for the squarespace image
+            output += '<a data-fancybox href="/s/petes.jpg"><img src="/s/petes.jpg" /></a></div>';
         }
         output += '<div class="event-details">';
         output += '<div class="header">';

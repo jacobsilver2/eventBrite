@@ -16,7 +16,7 @@ ol, ul, li { padding: 0; margin: 0; }
 /* Structure*/
 .queue-events-wrapper {
   position: relative;
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
 /*  top: 0; right: 0;
   bottom: 0; left: 0;*/
@@ -248,15 +248,15 @@ text-decoration: none;
 
 
 
-.readMoreLink { 
-    display: inline; 
-    color : white; 
-    font-size : 1.2em; 
+.readMoreLink {
+    display: inline;
+    color : white;
+    font-size : 1.2em;
     text-align: right
 }
-.readLessLink { 
-  color : white; 
-  font-size : 1.2em; 
+.readLessLink {
+  color : white;
+  font-size : 1.2em;
 }
 
 .queue-event .footer strong {
