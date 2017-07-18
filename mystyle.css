@@ -94,18 +94,25 @@ ol, ul, li { padding: 0; margin: 0; }
   width: 120px;
   height: 120px;
 }
+
 /* content */
 .queue-events .queue-event .content {
   padding: 0 160px 0 0;
   min-height: 100px;
   overflow: hidden;
 }
+
+/* header */
 .queue-events .queue-event .header { overflow: hidden; }
+
+/* event details */
 .queue-events .queue-event .event-details {
   position: relative;
   padding: 0 120px 0 0;
   overflow: hidden;
 }
+
+/* button */
 /*.queue-events .queue-event .btn-details {
   position: absolute;
   top: 50%; right: 15px;
@@ -136,6 +143,8 @@ ol, ul, li { padding: 0; margin: 0; }
   font-weight: normal;
   letter-spacing: 0.01em;
 }*/
+
+/* title */
 .queue-events .queue-event .title {
   display: block;
   margin: 0 0 8px 0;
@@ -239,8 +248,13 @@ text-decoration: none;
   color: #B0291F;
   text-decoration: none;
 }
+.queue-event .footer strong {
+  font-weight: 500;
+}
+.queue-event .footer .venue:before,
+.queue-event .footer .date-area-micro { display: none; }
 
-/* read more/less */
+/* read more read less */
 .readMoreLink {
     display: inline;
     color : white;
@@ -251,12 +265,6 @@ text-decoration: none;
   color : white;
   font-size : 1.2em;
 }
-
-.queue-event .footer strong {
-  font-weight: 500;
-}
-.queue-event .footer .venue:before,
-.queue-event .footer .date-area-micro { display: none; }
 
 /* various screen types */
 @media screen and (max-width: 600px) {
