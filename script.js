@@ -1,12 +1,7 @@
-//pineBoxTest.json
 // Pine Box: https://www.eventbrite.com/venue/api/feeds/venue/426.json
 // Pete's https://www.eventbrite.com/venue/api/feeds/venue/424.json
+
 //create a global array that stores every date
-
-//sean says to remove this:
-// var dateArray = [];
-// //get all dates from JSON feed and throw em into an array
-
 $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(data) {
     //populate the dateArray with dates from the JSON feed
     var dateArray = [];
@@ -16,13 +11,14 @@ $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(
 
     var dateArrayCounter = 0;
     var output = '<div class="queue-events-wrapper layout-standard"><ul id="queue-event-list" class="queue-events">';
+
     //loop through each item in json feed and create html
     $.each(data, function(key, val) {
-        //format the starts_at variable to display a better output
+        //format the starts_at value to display a better output using moment.js
         var myDate = moment.utc(val.starts_at).format("MMMM Do (dddd)");
         output += '<li class="queue-event">';
         //date overlay
-        if ((dateArray[dateArrayCounter]) !== (dateArray[dateArrayCounter - 1])) {
+        if ((dateArray[dateArrayCounter ]) !== (dateArray[dateArrayCounter - 1])) {
             output += '<div class="newDateArea">';
             output += myDate;
             output += '</div>';
@@ -38,7 +34,9 @@ $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(
             output += '" /></a>';
             output += '</div>';
         } else {
-            output += '<a data-fancybox href="petes.jpg"><img src="petes.jpg" /></a></div>';
+            //local address for Pete's image is petes.jpg
+            //squarespace address is /s/petes.jpg
+            output += '<a data-fancybox href="/s/petes.jpg"><img src="petes.jpg" /></a></div>';
         }
         output += '<div class="event-details">';
         output += '<div class="header">';
@@ -70,37 +68,5 @@ $.getJSON("https://www.eventbrite.com/venue/api/feeds/venue/424.json", function(
         lessLink: '<a href="#" class="readLessLink">Close</a>',
         embedCSS: false,
         collapsedHeight: 30,
-    });
-    jQuery(function($) {
-        // Grab whatever we need to paginate
-        var pageParts = $(".queue-event");
-        // How many parts do we have?
-        var numPages = pageParts.length;
-        // How many parts do we want per page?
-        var perPage = 30;
-        // When the document loads we're on page 1
-        // So to start with... hide everything else
-        pageParts.slice(perPage).hide();
-        // Apply simplePagination to our placeholder
-        $(".page-nav").pagination({
-            items: numPages,
-            itemsOnPage: perPage,
-            displayedPages: 3,
-            // prevText: myMonth,
-            // nextText: '',
-            cssStyle: "dark-theme",
-            // We implement the actual pagination
-            //   in this next function. It runs on
-            //   the event that a user changes page
-            onPageClick: function(pageNum) {
-                // Which page parts do we show?
-                var start = perPage * (pageNum - 1);
-                var end = start + perPage;
-                // First hide all page parts
-                // Then show those just for our page
-                pageParts.hide()
-                    .slice(start, end).show();
-            }
-        });
     });
 });
