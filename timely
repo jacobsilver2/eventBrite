@@ -1,0 +1,6 @@
+<script class="ai1ec-widget-placeholder" data-widget="ai1ec_superwidget" data-events_limit="100">
+  (function(){var d=document,s=d.createElement('script'),
+  i='ai1ec-script';if(d.getElementById(i))return;s.async=1;
+  s.id=i;s.src='//live-petescandystore.time.ly/?ai1ec_js_widget';
+  d.getElementsByTagName('head')[0].appendChild(s);})();
+</script>

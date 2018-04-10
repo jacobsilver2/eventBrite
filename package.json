@@ -1,0 +1,28 @@
+{
+  "name": "eventbritepetes",
+  "version": "1.0.0",
+  "description": "npm dependencies for pete's eventbrite calendar",
+  "main": "jquery-3.2.1.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  }, 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobsilver2/eventBrite.git"
+  },
+  "author": "jake silver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacobsilver2/eventBrite/issues"
+  },
+  "homepage": "https://github.com/jacobsilver2/eventBrite#readme",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "javascript-styleguide": "^1.0.0"
+  },
+  "eslintConfig": {
+  "root": true,
+  "extends": "./node_modules/javascript-styleguide/.eslintrc.yaml"
+}
+}
