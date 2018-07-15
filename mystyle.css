@@ -151,11 +151,11 @@ li {
 
 .btn-details {
   align: left;
-  position: relative;
+  position: static;
   top: 50%; bottom: 35px;
   display: inline;
   margin: -35px 0 0 0;
-  padding: 15px 20px;
+  padding: 1px 20px;
   width: 100px; height: 20px;
   background: #B0291F;
   color: red;

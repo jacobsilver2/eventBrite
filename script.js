@@ -31,17 +31,11 @@ $
     // these variable are for making sure "today" is the first date to be listed, as
     // the JSON feed often incorrectly lists yesterday as the first date.
     let today = new Date()
-    today = moment
-      .utc(today)
-      .format('YYYY-MM-DD')
-    const yesterday = moment
-      .utc(today)
-      .subtract(1, 'day')
-      .format('YYYY-MM-DD')
+    today = moment.utc(today).format('YYYY-MM-DD')
+    const yesterday = moment.utc(today).subtract(1, 'day').format('YYYY-MM-DD')
 
     // the first addition to "output"
-    let output = '<div class="queue-events-wrapper layout-standard"><ul id="queue-event-list" clas' +
-        's="queue-events">'
+    let output = '<div class="queue-events-wrapper layout-standard"><ul id="queue-event-list" class="queue-events">'
 
     // loop through each item in json feed and create html
     $.each(data, (key, val) => {
@@ -51,16 +45,17 @@ $
         return true
       }
       // format the starts_at value to display a better output (using moment.js)
-      const myDate = moment
-        .utc(val.starts_at)
-        .format('MMMM Do (dddd)')
+      const myDate = moment.utc(val.starts_at).format('MMMM Do (dddd)')
+
       output += '<li class="queue-event">'
       // date overlay
       if (dateArray[dateArrayCounter] !== dateArray[dateArrayCounter - 1]) {
         output += '<div class="newDateArea">'
         output += myDate
+        // end newDateArea div
         output += '</div>'
       }
+      
       dateArrayCounter++
       output += '<div class="figure">'
       // fancybox link:
@@ -70,6 +65,7 @@ $
         output += '"><img class="lazyload" data-original="'
         output += val.poster
         output += '" /></a>'
+        // end figure div
         output += '</div>'
       }
       else {
@@ -80,8 +76,10 @@ $
         output += bandImages[randomNum]
         output += '"><img class="lazyload" data-original="'
         output += bandImages[randomNum]
+        // end figure div
         output +=  '"/></a></div>'
       }
+
       output += '<div class="event-details">'
       output += '<div class="header">'
       if (val.external_url !== null) {
@@ -89,22 +87,31 @@ $
         output += val.external_url
         output += '" target="_blank">'
         output += val.title
+        // end header div
         output += '</a></h3></div>'
       }
       else {
         output += '<h3 class="title event-title">'
         output += val.title
+        // end header div
         output += '</h3></div>'
       }
       output += '<div class="footer">'
       output += '<ol>'
+      
+      
+      if (val.presents !== null) {
+        output += '<a class="btn-details btn-primary" href="'
+        output += 'http://www.eventbrite.com/e/'
+        output += val.eventbrite_id
+        output += '" target="_blank">Click Here To Buy Tickets</a>'
+      }
       if (val.description !== null) {
         output += '<div class="description"><li>'
         output += val.description
+        // end description div
         output += '</li></div>'
-        if (val.presents !== null) {
-          output += '<a class="btn btn-details btn-primary" href="http://www.michaelsarian.com" target="_blank">Buy Tickets</a>'
-        }
+        // end footer div
         // output += '</div>'
       }
 
@@ -112,10 +119,13 @@ $
       if (val.external_url !== null) {
         output += '<div class="external-link"><li><a href="'
         output += val.external_url
+        // end external-link div
         output += '">Go to artist website</a></li></div>'
       }
+      // end footer div, end 
       output += '</ol></div></div>'
     })
+    // end queue-events-wrapper div
     output += '</ul></div>'
 
     // render to the DOM
